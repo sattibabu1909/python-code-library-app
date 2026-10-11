@@ -1,7 +1,7 @@
 ---
 services:
   db:
-    image: sattibabudevops/library:db
+    image: sattibabudevops/library:dbapp
     deploy:
       replicas: 1
     ports:
@@ -10,7 +10,7 @@ services:
       - mynetwork
 
   auth_service:
-    image: sattibabudevops/library:auth
+    image: sattibabudevops/library:pythonapp-auth
     deploy:
       replicas: 1
     ports:
@@ -22,7 +22,7 @@ services:
     
 
   book_service:
-    image: sattibabudevops/library:book
+    image: sattibabudevops/library:pythonapp-book
     deploy:
       replicas: 1
     ports:
@@ -32,7 +32,7 @@ services:
     depends_on:
       - db
   borrow_service:
-    image: sattibabudevops/library:borrow
+    image: sattibabudevops/library:pythonapp-borrow
     deploy:
       replicas: 1
     ports:
@@ -43,7 +43,7 @@ services:
       - db
 
   frontend:
-    image: sattibabudevops/library:frontend
+    image: sattibabudevops/library:pythonapp-frontend'
     deploy:
       replicas: 1
     ports:
